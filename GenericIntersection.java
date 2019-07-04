@@ -40,11 +40,15 @@ class GenericIntersection
 	static Point checkIntersection(Point A, Point B, Point C, Point D) 
     { 
         double d = (B.y - A.y)*(C.x - D.x) - (D.y - C.y)*(A.x - B.x); 
-       
-        if (d == 0) // The lines are parallel
-        {  
-            return new Point(Double.MAX_VALUE, Double.MAX_VALUE); 
-        } 
+        double s1 = (A.y-B.y)/(A.x-B.x);
+	double s2 = (C.y-D.y)/(C.x-D.x);
+	if(s1 == s2){
+		if (d == 0) // The lines are parallel
+		{  
+		    return new Point(Double.MAX_VALUE, Double.MAX_VALUE); 
+		}
+	    	return new Point(Double.MAX_VALUE, Double.MAX_VALUE);
+	} 
         else
         { 
             double x = ((C.x - D.x)*((B.y - A.y)*(A.x) 
